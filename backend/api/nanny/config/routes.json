@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/nannies",
+      "handler": "nanny.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/nannies/count",
+      "handler": "nanny.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/nannies/:id",
+      "handler": "nanny.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/nannies",
+      "handler": "nanny.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/nannies/:id",
+      "handler": "nanny.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/nannies/:id",
+      "handler": "nanny.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
