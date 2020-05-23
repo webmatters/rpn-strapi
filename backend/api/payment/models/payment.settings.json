@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "Payment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "stripe_id": {
+      "type": "string",
+      "required": true
+    },
+    "total": {
+      "type": "decimal",
+      "required": true
+    },
+    "token_id": {
+      "type": "string",
+      "required": true
+    },
+    "customer": {
+      "model": "customer"
+    },
+    "booking": {
+      "model": "booking"
+    }
+  }
+}
