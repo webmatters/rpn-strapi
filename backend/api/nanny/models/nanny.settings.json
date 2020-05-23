@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nannies",
+  "info": {
+    "name": "Nanny"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "phone": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "stripe_id": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "revenue": {
+      "type": "decimal"
+    },
+    "service": {
+      "model": "service",
+      "via": "nannies"
+    },
+    "bookings": {
+      "collection": "booking",
+      "via": "nanny"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

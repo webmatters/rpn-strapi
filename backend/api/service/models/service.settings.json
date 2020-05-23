@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "name": "Service"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "company_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "address_1": {
+      "type": "string",
+      "required": true
+    },
+    "address_2": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "zip": {
+      "type": "biginteger",
+      "required": true
+    },
+    "phone": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "approval": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "rate": {
+      "type": "decimal",
+      "required": true
+    },
+    "bookings": {
+      "collection": "booking",
+      "via": "service"
+    },
+    "nannies": {
+      "via": "service",
+      "collection": "nanny"
+    }
+  }
+}

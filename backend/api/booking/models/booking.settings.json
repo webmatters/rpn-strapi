@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "name": "Booking"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "date": {
+      "required": true,
+      "type": "date"
+    },
+    "start_time": {
+      "type": "time",
+      "required": true
+    },
+    "ending_time": {
+      "type": "time",
+      "required": true
+    },
+    "total": {
+      "type": "decimal",
+      "required": true
+    },
+    "tip": {
+      "type": "decimal"
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": true
+    },
+    "address_1": {
+      "type": "string",
+      "required": true
+    },
+    "address_2": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "zip": {
+      "type": "biginteger"
+    },
+    "notes": {
+      "type": "text",
+      "required": false
+    },
+    "customer": {
+      "model": "customer",
+      "via": "bookings"
+    },
+    "service": {
+      "via": "bookings",
+      "model": "service"
+    },
+    "nanny": {
+      "via": "bookings",
+      "model": "nanny"
+    },
+    "staff": {
+      "via": "bookings",
+      "collection": "staff"
+    }
+  }
+}
