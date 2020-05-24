@@ -13,11 +13,11 @@
       "required": true,
       "type": "date"
     },
-    "start_time": {
+    "startAt": {
       "type": "time",
       "required": true
     },
-    "ending_time": {
+    "endAt": {
       "type": "time",
       "required": true
     },
@@ -32,13 +32,16 @@
       "type": "decimal",
       "required": true
     },
-    "address_1": {
+    "address1": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 128,
+      "minLength": 3
     },
-    "address_2": {
+    "address2": {
       "type": "string",
-      "required": true
+      "required": false,
+      "maxLength": 128
     },
     "city": {
       "type": "string",
@@ -46,7 +49,9 @@
     },
     "state": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 2,
+      "minLength": 2
     },
     "zip": {
       "type": "biginteger"
@@ -59,17 +64,13 @@
       "model": "customer",
       "via": "bookings"
     },
-    "service": {
-      "via": "bookings",
-      "model": "service"
-    },
     "nanny": {
       "via": "bookings",
       "model": "nanny"
     },
-    "staff": {
-      "via": "bookings",
-      "collection": "staff"
+    "kids": {
+      "required": true,
+      "type": "integer"
     }
   }
 }
