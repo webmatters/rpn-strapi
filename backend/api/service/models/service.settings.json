@@ -71,14 +71,6 @@
     "rate": {
       "type": "decimal",
       "required": true
-    },
-    "bookings": {
-      "collection": "booking",
-      "via": "service"
-    },
-    "nannies": {
-      "via": "service",
-      "collection": "nanny"
     }
   }
 }

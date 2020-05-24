@@ -12,12 +12,16 @@
     "name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false,
+      "maxLength": 128,
+      "minLength": 3
     },
     "email": {
       "type": "email",
       "required": true,
-      "unique": true
+      "unique": false,
+      "maxLength": 128,
+      "minLength": 5
     },
     "password": {
       "type": "password",
@@ -26,7 +30,7 @@
     "phone": {
       "type": "biginteger",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "stripe_id": {
       "type": "string",
@@ -36,10 +40,6 @@
     "revenue": {
       "type": "decimal"
     },
-    "service": {
-      "model": "service",
-      "via": "nannies"
-    },
     "bookings": {
       "collection": "booking",
       "via": "nanny"
@@ -48,6 +48,61 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "maxLength": 128,
+      "minLength": 3
+    },
+    "address1": {
+      "type": "string",
+      "required": true,
+      "maxLength": 128,
+      "minLength": 3
+    },
+    "address2": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "state": {
+      "type": "string",
+      "required": true,
+      "maxLength": 2,
+      "minLength": 2
+    },
+    "zip": {
+      "type": "string",
+      "required": true,
+      "maxLength": 11,
+      "minLength": 5
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "headline": {
+      "type": "text",
+      "required": true,
+      "maxLength": 240,
+      "minLength": 3
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 3
+    },
+    "hourlyRate": {
+      "type": "decimal",
+      "required": true
+    },
+    "milesRadius": {
+      "type": "integer"
     }
   }
 }
