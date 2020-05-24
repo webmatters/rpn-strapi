@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/staff",
-      "handler": "staff.find",
+      "path": "/moderators",
+      "handler": "moderator.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/staff/count",
-      "handler": "staff.count",
+      "path": "/moderators/count",
+      "handler": "moderator.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/staff/:id",
-      "handler": "staff.findOne",
+      "path": "/moderators/:id",
+      "handler": "moderator.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/staff",
-      "handler": "staff.create",
+      "path": "/moderators",
+      "handler": "moderator.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/staff/:id",
-      "handler": "staff.update",
+      "path": "/moderators/:id",
+      "handler": "moderator.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/staff/:id",
-      "handler": "staff.delete",
+      "path": "/moderators/:id",
+      "handler": "moderator.delete",
       "config": {
         "policies": []
       }

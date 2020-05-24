@@ -13,12 +13,15 @@ import Hidden from "@material-ui/core/Hidden";
 import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 
+import Query from "../components/query";
+import NANNIES_QUERY from "../apollo/queries/nanny/nannies";
+
 const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarTitle: {
-    flex: 1,
+    flex: 1
   },
   mainFeaturedPost: {
     position: "relative",
@@ -28,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: "url(https://source.unsplash.com/user/erondu)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    backgroundPosition: "center"
   },
   overlay: {
     position: "absolute",
@@ -36,25 +39,25 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "rgba(0,0,0,.7)",
+    backgroundColor: "rgba(0,0,0,.7)"
   },
   mainFeaturedPostContent: {
     position: "relative",
     padding: theme.spacing(3),
     [theme.breakpoints.up("md")]: {
       padding: theme.spacing(6),
-      paddingRight: 0,
-    },
+      paddingRight: 0
+    }
   },
   card: {
-    display: "flex",
+    display: "flex"
   },
   cardDetails: {
-    flex: 1,
+    flex: 1
   },
   cardMedia: {
-    width: 160,
-  },
+    width: 160
+  }
 }));
 
 const featuredPosts = [
@@ -62,14 +65,14 @@ const featuredPosts = [
     title: "Featured post",
     date: "Nov 12",
     description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+      "This is a wider card with supporting text below as a natural lead-in to additional content."
   },
   {
     title: "Post title",
     date: "Nov 11",
     description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-  },
+      "This is a wider card with supporting text below as a natural lead-in to additional content."
+  }
 ];
 
 const Blog = () => {
@@ -162,6 +165,16 @@ const Blog = () => {
             ))}
           </Grid>
           {/* End sub featured posts */}
+          {/* Testing GraphQL */}
+          <Query query={NANNIES_QUERY} id={null}>
+            {({ data: { nannies } }) =>
+              nannies.map(nanny => (
+                <Typography variant="h3" key={nanny._id}>
+                  Hey there, {nanny.name}
+                </Typography>
+              ))
+            }
+          </Query>
         </main>
       </Container>
     </>

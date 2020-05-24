@@ -17,10 +17,8 @@
       "required": true
     },
     "customer": {
-      "model": "customer"
-    },
-    "service": {
-      "model": "service"
+      "model": "customer",
+      "via": "reviews"
     }
   }
 }
